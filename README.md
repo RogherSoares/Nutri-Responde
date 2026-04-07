@@ -17,7 +17,9 @@ O projeto organiza o dominio de uma aplicacao para acompanhamento nutricional, i
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Modelo de Dados](#modelo-de-dados)
 - [Como Executar o Projeto](#como-executar-o-projeto)
+- [Testes de Rotas com REST Client](#testes-de-rotas-com-rest-client)
 - [Scripts Disponiveis](#scripts-disponiveis)
+- [Solucao de Problemas](#solucao-de-problemas)
 - [Colaboradores](#colaboradores)
 - [Licenca](#licenca)
 
@@ -234,6 +236,31 @@ npm run test:cov
 npm run lint
 npm run format
 ```
+
+## Testes de Rotas com REST Client
+
+O projeto possui um arquivo dedicado para testes manuais de rotas:
+
+- client.rest
+
+Como usar no VS Code:
+
+1. Instale a extensao REST Client.
+2. Inicie a API com npm run start:dev.
+3. Abra o arquivo client.rest.
+4. Clique em Send Request em cada bloco para testar os endpoints.
+
+Variaveis ja configuradas no arquivo:
+
+- @baseUrl = <http://localhost:3000>
+- @id = 1
+
+O arquivo inclui chamadas para os principais recursos da API, com exemplos de:
+
+- GET (lista e por id)
+- POST (criacao)
+- PATCH (atualizacao)
+- DELETE (remocao)
 
 ## Scripts Disponiveis
 

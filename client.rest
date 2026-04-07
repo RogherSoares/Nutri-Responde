@@ -1,0 +1,183 @@
+@baseUrl = http://localhost:3000
+@id = 1
+
+### Health check basico
+GET {{baseUrl}}
+
+### USUARIO - listar
+GET {{baseUrl}}/usuario
+
+### USUARIO - buscar por id
+GET {{baseUrl}}/usuario/{{id}}
+
+### USUARIO - criar
+POST {{baseUrl}}/usuario
+Content-Type: application/json
+
+{
+  "nome": "Rogher Soares",
+  "email": "rogher@example.com",
+  "senha_hash": "hash123",
+  "tipo": "paciente",
+  "telefone": "11999999999"
+}
+
+### USUARIO - atualizar
+PATCH {{baseUrl}}/usuario/{{id}}
+Content-Type: application/json
+
+{
+  "nome": "Rogher Soares Atualizado"
+}
+
+### USUARIO - remover
+DELETE {{baseUrl}}/usuario/{{id}}
+
+### PACIENTE - listar
+GET {{baseUrl}}/paciente
+
+### PACIENTE - criar
+POST {{baseUrl}}/paciente
+Content-Type: application/json
+
+{
+  "usuario_id": "uuid-exemplo",
+  "objetivo": "Emagrecimento",
+  "alergias": "Lactose"
+}
+
+### NUTRICIONISTA PERFIL - listar
+GET {{baseUrl}}/nutricionista-perfil
+
+### NUTRICIONISTA PERFIL - criar
+POST {{baseUrl}}/nutricionista-perfil
+Content-Type: application/json
+
+{
+  "usuario_id": "uuid-exemplo",
+  "crn": "12345",
+  "bio": "Nutricionista esportivo"
+}
+
+### ESPECIALIDADE - listar
+GET {{baseUrl}}/especialidade
+
+### ESPECIALIDADE - criar
+POST {{baseUrl}}/especialidade
+Content-Type: application/json
+
+{
+  "nome": "Nutricao Esportiva"
+}
+
+### DUVIDA - listar
+GET {{baseUrl}}/duvida
+
+### DUVIDA - criar
+POST {{baseUrl}}/duvida
+Content-Type: application/json
+
+{
+  "cliente_id": "uuid-exemplo",
+  "nutricionista_id": "uuid-exemplo",
+  "titulo": "Posso usar whey a noite?",
+  "descricao": "Tenho treino as 19h",
+  "status": "aberta"
+}
+
+### RESPOSTA - listar
+GET {{baseUrl}}/resposta
+
+### RESPOSTA - criar
+POST {{baseUrl}}/resposta
+Content-Type: application/json
+
+{
+  "duvida_id": "uuid-exemplo",
+  "nutricionista_id": "uuid-exemplo",
+  "conteudo": "Sim, pode utilizar apos o treino conforme orientacao."
+}
+
+### PLANO NUTRICIONAL - listar
+GET {{baseUrl}}/plano-nutricional
+
+### PLANO NUTRICIONAL - criar
+POST {{baseUrl}}/plano-nutricional
+Content-Type: application/json
+
+{
+  "paciente_id": "uuid-exemplo",
+  "nutricionista_id": "uuid-exemplo",
+  "metas": "Meta de recomposicao corporal",
+  "vigente": true
+}
+
+### RECEITA PLANO - listar
+GET {{baseUrl}}/receita-plano
+
+### RECEITA PLANO - criar
+POST {{baseUrl}}/receita-plano
+Content-Type: application/json
+
+{
+  "plano_id": "uuid-exemplo",
+  "nome": "Cafe da manha",
+  "horario": "07:00",
+  "itens": "Aveia, banana, iogurte"
+}
+
+### AVALIACAO ANTROPOMETRICA - listar
+GET {{baseUrl}}/avaliacao-antropometrica
+
+### AVALIACAO ANTROPOMETRICA - criar
+POST {{baseUrl}}/avaliacao-antropometrica
+Content-Type: application/json
+
+{
+  "paciente_id": "uuid-exemplo",
+  "nutricionista_id": "uuid-exemplo",
+  "peso_kg": 78.4,
+  "altura_m": 1.76,
+  "data": "2026-04-07"
+}
+
+### PAGAMENTO - listar
+GET {{baseUrl}}/pagamento
+
+### PAGAMENTO - criar
+POST {{baseUrl}}/pagamento
+Content-Type: application/json
+
+{
+  "nutricionista_id": "uuid-exemplo",
+  "paciente_id": "uuid-exemplo",
+  "valor": 180.0,
+  "metodo": "pix",
+  "status": "pago",
+  "data": "2026-04-07"
+}
+
+### VINCULO NUTRI PACIENTE - listar
+GET {{baseUrl}}/vinculo-nutri-paciente
+
+### VINCULO NUTRI PACIENTE - criar
+POST {{baseUrl}}/vinculo-nutri-paciente
+Content-Type: application/json
+
+{
+  "nutricionista_perfil_id": "uuid-exemplo",
+  "paciente_id": "uuid-exemplo",
+  "consentimento": true
+}
+
+### NUTRICIONISTA ESPECIALIDADE - listar
+GET {{baseUrl}}/nutricionista-especialidade
+
+### NUTRICIONISTA ESPECIALIDADE - criar
+POST {{baseUrl}}/nutricionista-especialidade
+Content-Type: application/json
+
+{
+  "nutricionista_perfil_id": "uuid-exemplo",
+  "especialidade_id": "uuid-exemplo"
+}
