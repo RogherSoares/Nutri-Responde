@@ -1,6 +1,6 @@
 # Nutri Responde API
 
-[![CI](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/actions/workflows/ci.yml/badge.svg)](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/actions/workflows/ci.yml)
+[![CI](https://github.com/RogherSoares/Nutri-Responde/actions/workflows/ci.yml/badge.svg)](https://github.com/RogherSoares/Nutri-Responde/actions/workflows/ci.yml)
 ![Version](https://img.shields.io/badge/version-0.0.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Node](https://img.shields.io/badge/node-20%2B-339933?logo=node.js&logoColor=white)
