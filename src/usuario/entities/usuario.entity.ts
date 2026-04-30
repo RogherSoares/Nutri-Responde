@@ -1,6 +1,7 @@
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { NutricionistaPerfil } from '../../nutricionista_perfil/entities/nutricionista_perfil.entity';
 import { Paciente } from '../../paciente/entities/paciente.entity';
+import { Role } from '../../auth/roles.enum';
 
 @Entity('usuario')
 export class Usuario {
@@ -17,10 +18,10 @@ export class Usuario {
   senha_hash!: string;
 
   @Column({ type: 'varchar', length: 30 })
-  tipo!: string;
+  tipo!: Role;
 
   @Column({ type: 'varchar', length: 30, nullable: true })
-  telefone!: string;
+  telefone!: string | null;
 
   @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
   criado_em!: Date;

@@ -7,7 +7,7 @@
 
 Backend da plataforma Nutri Responde, desenvolvido com NestJS, TypeScript e TypeORM.
 
-O projeto organiza o dominio de uma aplicacao para acompanhamento nutricional, incluindo cadastro de usuarios, perfil profissional do nutricionista, pacientes, duvidas e respostas, plano nutricional, refeicoes do plano, pagamentos, especialidades e vinculo nutricionista-paciente.
+O projeto organiza o dominio de uma aplicacao para acompanhamento nutricional, incluindo cadastro de usuarios, autenticacao JWT com autorizacao por roles, perfil profissional do nutricionista, pacientes, duvidas e respostas, plano nutricional, refeicoes do plano, pagamentos, especialidades e vinculo nutricionista-paciente.
 
 ## Sumario
 
@@ -102,6 +102,41 @@ Atualmente, o modelo relacional esta mapeado no TypeORM com entidades e relacion
 - Modulos registrados no AppModule.
 - Estrutura base CRUD gerada para os recursos.
 
+### Autorizacao RBAC
+
+O projeto agora inclui uma camada de autenticacao e autorizacao baseada em JWT e roles:
+
+- `Role` define os papeis `admin`, `nutricionista` e `paciente`.
+- `@Roles()` marca quais papeis podem acessar uma rota.
+- `RoleGuard` valida os papeis da requisicao usando `request.user`.
+- `AuthUserGuard` tenta ler o `Authorization: Bearer <token>` e popula `request.user` com o conteudo do JWT quando o token existe.
+- `RoleGuard` bloqueia as rotas protegidas quando o usuario nao possui os papeis exigidos.
+- `POST /auth/register` cria o usuario com senha hash e devolve `access_token` e o usuario sem `senha_hash`.
+- `POST /auth/login` autentica com email e senha e devolve `access_token` e o usuario sem `senha_hash`.
+
+Rotas protegidas atualmente usam `AuthUserGuard` + `RoleGuard` em recursos como:
+
+- `usuario` com acesso apenas de `admin`.
+- `paciente`, `nutricionista_perfil`, `duvida`, `resposta` e `avaliacao_antropometrica` com regras por rota entre `admin`, `nutricionista` e `paciente`.
+
+Para testar manualmente, gere um token e envie o header de autorizacao nas rotas protegidas. Exemplo:
+
+```http
+Authorization: Bearer <seu-token>
+```
+
+Exemplo de login:
+
+```http
+POST /auth/login
+Content-Type: application/json
+
+{
+  "email": "maria@nutri-responde.local",
+  "senha": "123456"
+}
+```
+
 ## Estrutura do Projeto
 
 ```text
@@ -109,6 +144,7 @@ src/
   main.ts
   app/
     app.module.ts
+  auth/
   usuario/
   nutricionista_perfil/
   paciente/

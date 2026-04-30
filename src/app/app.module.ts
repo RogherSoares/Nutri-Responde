@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from '../auth/auth.module';
 import { AvaliacaoAntropometricaModule } from '../avaliacao_antropometrica/avaliacao_antropometrica.module';
 import { DuvidaModule } from '../duvida/duvida.module';
 import { EspecialidadeModule } from '../especialidade/especialidade.module';
@@ -52,6 +53,7 @@ import { VinculoNutriPaciente } from '../vinculo_nutri_paciente/entities/vinculo
       ],
       synchronize: true,
     }),
+    AuthModule,
     UsuarioModule,
     NutricionistaPerfilModule,
     PacienteModule,
