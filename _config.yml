@@ -11,8 +11,8 @@ destination: _site
 # Site settings
 title: NutriResponde
 description: Plataforma de acompanhamento nutricional personalizado
-url: "https://roghersaoares.github.io/Nutri-Responde"
-baseurl: "/Nutri-Responde"
+url: 'https://roghersaoares.github.io/Nutri-Responde'
+baseurl: '/Nutri-Responde'
 
 # Build settings
 markdown: kramdown
