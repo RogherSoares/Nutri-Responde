@@ -1,0 +1,27 @@
+# GitHub Pages configuration for Nutri-Responde
+# Serves the static frontend from the docs/ folder
+
+# Set the source for GitHub Pages
+source: docs
+destination: _site
+
+# Theme settings (optional - can use any Jekyll theme)
+# theme: jekyll-theme-minimal
+
+# Site settings
+title: NutriResponde
+description: Plataforma de acompanhamento nutricional personalizado
+url: "https://roghersaoares.github.io/Nutri-Responde"
+baseurl: "/Nutri-Responde"
+
+# Build settings
+markdown: kramdown
+exclude:
+  - node_modules
+  - src/
+  - test/
+  - .github/
+  - package.json
+  - package-lock.json
+  - README.md
+  - LICENSE
