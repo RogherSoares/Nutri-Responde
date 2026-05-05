@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriResponde - Avaliações</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body data-page="avaliacoes">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-nr">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../index.html"><i class="fas fa-leaf me-2"></i>NutriResponde</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topMenu"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="topMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="confirmLogout()">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container-fluid py-4 page-shell">
+        <div class="row g-4">
+            <div class="col-lg-2">
+                <div class="card sidebar-card">
+                    <div class="list-group list-group-flush"><a data-nav="dashboard"
+                            class="list-group-item list-group-item-action" href="dashboard.html">Dashboard</a><a
+                            data-nav="pesquisa" class="list-group-item list-group-item-action"
+                            href="pesquisa-nutricionistas.html">Nutricionistas</a><a data-nav="duvidas"
+                            class="list-group-item list-group-item-action" href="duvidas.html">Dúvidas</a><a
+                            data-nav="plano" class="list-group-item list-group-item-action" href="meu-plano.html">Meu
+                            plano</a><a data-nav="avaliacoes" class="list-group-item list-group-item-action active"
+                            href="avaliacoes.html">Avaliações</a><a data-nav="financeiro"
+                            class="list-group-item list-group-item-action" href="financeiro.html">Financeiro</a><a
+                            data-nav="admin" class="list-group-item list-group-item-action"
+                            href="admin-panel.html">Admin</a></div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="page-header">
+                    <h1><i class="fas fa-ruler-combined me-2 text-primary"></i>Avaliações Antropométricas</h1>
+                    <p><i class="fas fa-chart-area me-2 text-muted"></i>Histórico de evolução corporal.</p>
+                </div>
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="number">72</div>
+                            <div class="text-muted">Peso (kg)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="number">24.2</div>
+                            <div class="text-muted">IMC</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="number">85</div>
+                            <div class="text-muted">Cintura (cm)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stats-card">
+                            <div class="number">22%</div>
+                            <div class="text-muted">Gordura</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-primary text-white fw-semibold"><i class="fas fa-clock-rotate-left me-2"></i>Histórico</div>
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Peso</th>
+                                    <th>Altura</th>
+                                    <th>IMC</th>
+                                    <th>Cintura</th>
+                                    <th>Gordura</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/04/2026</td>
+                                    <td>72</td>
+                                    <td>1.72</td>
+                                    <td>24.2</td>
+                                    <td>85</td>
+                                    <td>22</td>
+                                </tr>
+                                <tr>
+                                    <td>01/03/2026</td>
+                                    <td>73</td>
+                                    <td>1.72</td>
+                                    <td>24.7</td>
+                                    <td>87</td>
+                                    <td>23.5</td>
+                                </tr>
+                                <tr>
+                                    <td>01/02/2026</td>
+                                    <td>74</td>
+                                    <td>1.72</td>
+                                    <td>25.0</td>
+                                    <td>88</td>
+                                    <td>24</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+
+</html>
