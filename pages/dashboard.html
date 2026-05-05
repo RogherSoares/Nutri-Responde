@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriResponde - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body data-page="dashboard">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-nr">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="../index.html"><i class="fas fa-leaf me-2"></i>NutriResponde</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topMenu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="topMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="confirmLogout()">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid py-4 page-shell">
+    <div class="row g-4">
+      <div class="col-lg-2">
+        <div class="card sidebar-card">
+          <div class="list-group list-group-flush">
+            <a data-nav="dashboard" class="list-group-item list-group-item-action active" href="dashboard.html">Dashboard</a>
+            <a data-nav="pesquisa" class="list-group-item list-group-item-action" href="pesquisa-nutricionistas.html">Nutricionistas</a>
+            <a data-nav="duvidas" class="list-group-item list-group-item-action" href="duvidas.html">Dúvidas</a>
+            <a data-nav="plano" class="list-group-item list-group-item-action" href="meu-plano.html">Meu plano</a>
+            <a data-nav="avaliacoes" class="list-group-item list-group-item-action" href="avaliacoes.html">Avaliações</a>
+            <a data-nav="financeiro" class="list-group-item list-group-item-action" href="financeiro.html">Financeiro</a>
+            <a data-nav="admin" class="list-group-item list-group-item-action" href="admin-panel.html">Admin</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        <div class="page-header">
+          <h1><i class="fas fa-chart-line me-2 text-primary"></i>Dashboard</h1>
+          <p><i class="fas fa-circle-info me-2 text-muted"></i>Resumo principal da plataforma.</p>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-3"><div class="card stats-card"><i class="fas fa-users fa-2x text-primary mb-2"></i><div class="number">12</div><div class="text-muted">Nutricionistas</div></div></div>
+          <div class="col-md-3"><div class="card stats-card"><i class="fas fa-question-circle fa-2x text-warning mb-2"></i><div class="number">8</div><div class="text-muted">Dúvidas abertas</div></div></div>
+          <div class="col-md-3"><div class="card stats-card"><i class="fas fa-file-alt fa-2x text-success mb-2"></i><div class="number">3</div><div class="text-muted">Planos ativos</div></div></div>
+          <div class="col-md-3"><div class="card stats-card"><i class="fas fa-credit-card fa-2x text-danger mb-2"></i><div class="number">R$ 450</div><div class="text-muted">A pagar</div></div></div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card card-hover h-100">
+              <div class="card-header bg-primary text-white fw-semibold"><i class="fas fa-bell me-2"></i>Atividades recentes</div>
+              <div class="card-body">
+                <div class="list-group list-group-flush">
+                  <div class="list-group-item px-0"><strong>Nova resposta</strong> de Nutricionista Maria <div class="small text-muted">há 2 horas</div></div>
+                  <div class="list-group-item px-0"><strong>Avaliação agendada</strong> para próxima segunda <div class="small text-muted">há 1 dia</div></div>
+                  <div class="list-group-item px-0"><strong>Novo plano nutricional</strong> disponibilizado <div class="small text-muted">há 3 dias</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card card-hover h-100">
+              <div class="card-header bg-success text-white fw-semibold"><i class="fas fa-user-md me-2"></i>Meus nutricionistas</div>
+              <div class="card-body">
+                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+                  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231f7a6f'/%3E%3Cstop offset='100%25' stop-color='%237fb8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='28' cy='28' r='28' fill='url(%23g)'/%3E%3Ctext x='50%25' y='53%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='white'%3EMS%3C/text%3E%3C/svg%3E" class="rounded-circle me-3" alt="Nutricionista Maria Silva">
+                  <div class="flex-grow-1"><div class="fw-semibold">Dra. Maria Silva</div><div class="small text-muted">Nutrição Clínica</div></div>
+                  <span class="badge bg-success badge-rounded">Ativo</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23175e56'/%3E%3Cstop offset='100%25' stop-color='%237fb8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='28' cy='28' r='28' fill='url(%23g)'/%3E%3Ctext x='50%25' y='53%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='white'%3EJS%3C/text%3E%3C/svg%3E" class="rounded-circle me-3" alt="Nutricionista João Santos">
+                  <div class="flex-grow-1"><div class="fw-semibold">Dr. João Santos</div><div class="small text-muted">Nutrição Esportiva</div></div>
+                  <span class="badge bg-success badge-rounded">Ativo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriResponde - Nutricionistas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body data-page="pesquisa">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-nr">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../index.html"><i class="fas fa-leaf me-2"></i>NutriResponde</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topMenu"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="topMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="confirmLogout()">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid py-4 page-shell">
+        <div class="row g-4">
+            <div class="col-lg-2">
+                <div class="card sidebar-card">
+                    <div class="list-group list-group-flush">
+                        <a data-nav="dashboard" class="list-group-item list-group-item-action"
+                            href="dashboard.html">Dashboard</a>
+                        <a data-nav="pesquisa" class="list-group-item list-group-item-action active"
+                            href="pesquisa-nutricionistas.html">Nutricionistas</a>
+                        <a data-nav="duvidas" class="list-group-item list-group-item-action"
+                            href="duvidas.html">Dúvidas</a>
+                        <a data-nav="plano" class="list-group-item list-group-item-action" href="meu-plano.html">Meu
+                            plano</a>
+                        <a data-nav="avaliacoes" class="list-group-item list-group-item-action"
+                            href="avaliacoes.html">Avaliações</a>
+                        <a data-nav="financeiro" class="list-group-item list-group-item-action"
+                            href="financeiro.html">Financeiro</a>
+                        <a data-nav="admin" class="list-group-item list-group-item-action"
+                            href="admin-panel.html">Admin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="page-header">
+                    <h1><i class="fas fa-magnifying-glass me-2 text-primary"></i>Pesquisar Nutricionistas</h1>
+                    <p><i class="fas fa-filter me-2 text-muted"></i>Filtre por especialidade, localização e valor.</p>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row g-3 align-items-end">
+                                <div class="col-md-4"><label class="form-label"><i class="fas fa-tags me-2 text-primary"></i>Especialidade</label><select
+                                    class="form-select">
+                                    <option>Todas</option>
+                                    <option>Nutrição Clínica</option>
+                                    <option>Nutrição Esportiva</option>
+                                    <option>Nutrição Pediátrica</option>
+                                </select></div>
+                                <div class="col-md-4"><label class="form-label"><i class="fas fa-location-dot me-2 text-primary"></i>Localização</label><input
+                                    class="form-control" placeholder="Cidade ou CEP"></div>
+                                <div class="col-md-4"><label class="form-label"><i class="fas fa-money-bill-wave me-2 text-primary"></i>Faixa de preço</label><input type="range"
+                                    class="form-range" min="50" max="500" value="150"></div>
+                        </div>
+                        <button class="btn btn-nr-primary mt-3"><i class="fas fa-search me-2"></i>Buscar</button>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="card card-hover h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div class="d-flex gap-3">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231f7a6f'/%3E%3Cstop offset='100%25' stop-color='%237fb8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='42' cy='42' r='42' fill='url(%23g1)'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white'%3EMS%3C/text%3E%3C/svg%3E" class="rounded-circle"
+                                            alt="Foto da nutricionista Maria Silva">
+                                        <div>
+                                            <h2 class="h5 mb-1">Dra. Maria Silva</h2>
+                                            <div class="small text-muted">CRN 12345/RJ</div>
+                                            <div class="mt-2 d-flex flex-wrap gap-2"><span
+                                                    class="badge bg-success badge-rounded">Clínica</span><span
+                                                    class="badge bg-info badge-rounded">Diabetes</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-warning"><i class="fas fa-star"></i><i
+                                                class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                        <div class="small text-muted">4.5 (48)</div>
+                                    </div>
+                                </div>
+                                <p class="mb-3">Especialista em nutrição clínica, atendimento presencial e online.</p>
+                                <div class="d-flex justify-content-between align-items-center"><strong>R$
+                                        150/consulta</strong><a href="perfil.html"
+                                        class="btn btn-outline-primary btn-sm">Ver perfil</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card card-hover h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div class="d-flex gap-3">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23175e56'/%3E%3Cstop offset='100%25' stop-color='%237fb8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='42' cy='42' r='42' fill='url(%23g2)'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white'%3EJS%3C/text%3E%3C/svg%3E" class="rounded-circle"
+                                            alt="Foto do nutricionista João Santos">
+                                        <div>
+                                            <h2 class="h5 mb-1">Dr. João Santos</h2>
+                                            <div class="small text-muted">CRN 54321/SP</div>
+                                            <div class="mt-2 d-flex flex-wrap gap-2"><span
+                                                    class="badge bg-warning badge-rounded">Esportiva</span><span
+                                                    class="badge bg-info badge-rounded">Fitness</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-warning"><i class="fas fa-star"></i><i
+                                                class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                        <div class="small text-muted">5.0 (35)</div>
+                                    </div>
+                                </div>
+                                <p class="mb-3">Atuação com atletas e performance esportiva, consultoria online.</p>
+                                <div class="d-flex justify-content-between align-items-center"><strong>R$
+                                        200/consulta</strong><a href="perfil.html"
+                                        class="btn btn-outline-primary btn-sm">Ver perfil</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+
+</html>
