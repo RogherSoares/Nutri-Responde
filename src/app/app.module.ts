@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -30,6 +32,9 @@ import { VinculoNutriPaciente } from '../vinculo_nutri_paciente/entities/vinculo
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '..', 'front_end'),
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
