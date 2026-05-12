@@ -33,7 +33,7 @@ import { VinculoNutriPaciente } from '../vinculo_nutri_paciente/entities/vinculo
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '..', 'front_end'),
+      rootPath: join(__dirname, '..', '..', 'docs'),
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',

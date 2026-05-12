@@ -102,6 +102,16 @@ Atualmente, o modelo relacional esta mapeado no TypeORM com entidades e relacion
 - Modulos registrados no AppModule.
 - Estrutura base CRUD gerada para os recursos.
 
+### CORS e Swagger
+
+- CORS habilitado no bootstrap (`src/main.ts`) para origens locais comuns de front-end:
+  - `http://localhost:3000`
+  - `http://localhost:5173`
+  - `http://localhost:5500`
+  - `http://127.0.0.1:5500`
+- Documentacao Swagger habilitada em `/api`.
+- Suporte a autenticacao Bearer no Swagger para testar rotas protegidas.
+
 ### Autorizacao RBAC
 
 O projeto agora inclui uma camada de autenticacao e autorizacao baseada em JWT e roles:
@@ -272,6 +282,59 @@ npm run test:cov
 npm run lint
 npm run format
 ```
+
+### 9) Frontend (versão estática)
+
+O projeto publica a UI estática na pasta `docs/`, pronta para GitHub Pages e testes locais.
+
+- Para abrir rapidamente sem servidor, abra `docs/index.html` no navegador (recomendo usar um servidor local para evitar restrições de CORS).
+- Para servir via Python (rápido):
+
+```bash
+cd docs
+python -m http.server 8000
+# abra http://localhost:8000
+```
+
+- Alternativamente use um servidor estático Node (`npx serve .` ou `npm i -g serve`).
+
+Arquivos principais do frontend:
+
+- `docs/index.html` — página inicial
+- `docs/pages/*.html` — páginas do painel e fluxo interno
+- `docs/assets/css/styles.css` — estilos principais (inclui tema escuro)
+- `docs/assets/js/app.js` — scripts de UI; contém o toggle de modo noturno (salva preferência em `localStorage`)
+
+Observação: o frontend está preparado para funcionar contra a API local (`http://localhost:3000`).
+
+### 10) Swagger, CORS e Documentação
+
+- Swagger UI disponível em: `http://localhost:3000/api` (quando a API estiver rodando).
+- O Swagger está configurado para suportar autenticação Bearer (clique em "Authorize" e cole o token).
+- Configuração de CORS (origens permitidas) e inicialização do Swagger estão em `src/main.ts`.
+
+Default CORS origins configuradas no bootstrap:
+
+- `http://localhost:3000`
+- `http://localhost:5173`
+- `http://localhost:5500`
+- `http://127.0.0.1:5500`
+
+Edite `src/main.ts` para adicionar ou remover origens conforme necessário.
+
+## Notas de manutenção e mudanças recentes
+
+- Adição de documentação Swagger e decorators (`@ApiProperty`, `@ApiTags`, `PartialType` para DTOs) em vários módulos para melhorar a documentação da API.
+- Ajustes no bootstrap para habilitar CORS e Swagger com suporte a Bearer auth.
+- Implementação do modo noturno no frontend (CSS + JS) e refinamentos de contraste/arredondamento.
+- Migração da UI estática para `docs/` para publicação via GitHub Pages.
+
+Arquivos modificados recentemente (exemplos):
+
+- `src/main.ts` — CORS + Swagger bootstrap
+- `docs/assets/css/styles.css` — tema escuro, contrastes e arredondamento
+- `docs/assets/js/app.js` — toggle de tema e persistência
+- Diversos DTOs e controllers em `src/**` com decorators do Swagger
 
 ## Testes de Rotas com REST Client
 
